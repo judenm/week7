@@ -1,5 +1,3 @@
-
-
 podTemplate(yaml: '''
     apiVersion: v1
     kind: Pod
@@ -60,7 +58,7 @@ podTemplate(yaml: '''
           echo 'COPY ./calculator-0.0.1-SNAPSHOT.jar app.jar' >> Dockerfile
           echo 'ENTRYPOINT ["java", "-jar", "app.jar"]' >> Dockerfile
           mv /mnt/calculator-0.0.1-SNAPSHOT.jar .
-          /kaniko/executor --context `pwd` --destination mjniruban/hello-kaniko:1.0
+          /kaniko/executor --context `pwd` --destination mjniruban/hello-kaniko-jude:1.0
           '''
         }
       }

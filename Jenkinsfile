@@ -39,7 +39,7 @@ podTemplate(yaml: '''
 ''') {
   node(POD_LABEL) {
     stage('Build a gradle project') {
-      git 'https://github.com/dlambrig/Continuous-Delivery-with-Docker-and-Jenkins-Second-Edition.git'
+      git 'https://github.com/judenm/Continuous-Delivery-with-Docker-and-Jenkins-Second-Edition.git'
       container('gradle') {
         stage('Build a gradle project') {
           sh '''
@@ -60,7 +60,7 @@ podTemplate(yaml: '''
           echo 'COPY ./calculator-0.0.1-SNAPSHOT.jar app.jar' >> Dockerfile
           echo 'ENTRYPOINT ["java", "-jar", "app.jar"]' >> Dockerfile
           mv /mnt/calculator-0.0.1-SNAPSHOT.jar .
-          /kaniko/executor --context `pwd` --destination dlambrig/hello-kaniko:1.0
+          /kaniko/executor --context `pwd` --destination mjniruban/hello-kaniko:1.0
           '''
         }
       }
